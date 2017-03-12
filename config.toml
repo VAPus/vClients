@@ -1,6 +1,6 @@
 Mode = "dev"
 Port = 80
-Host = ""
+Host = "localhost"
 
 [SSL]
 Enabeld = false
