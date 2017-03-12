@@ -1,0 +1,25 @@
+body {
+    background-color: #000105;
+    background-image: url("/public/bg.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    color: white;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.list {
+    margin: 0 auto;
+    margin-top: 60px;
+    width: 20%;
+}
+
+.table-blue>thead {
+    background-color: #1B95E0;
+}
+
+.table-blue>thead>tr>th {
+    padding: 14px;
+}
+.table-blue>tbody>tr>td {
+    padding: 14px;
+}

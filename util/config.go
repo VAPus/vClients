@@ -1,8 +1,8 @@
-package main
+package util
 
 import "github.com/BurntSushi/toml"
 
-type config struct {
+type Config struct {
 	Mode string
 	Port int
 	Host string
@@ -15,8 +15,9 @@ type configSSL struct {
 	Cert string
 }
 
-func loadConfigurationFile(path string) (cfg *config, err error) {
-	cfg = &config{}
+// LoadConfigurationFile loads a TOML file into the given struct
+func LoadConfigurationFile(path string) (cfg *Config, err error) {
+	cfg = &Config{}
 
 	if _, err = toml.DecodeFile(path, cfg); err != nil {
 		return
