@@ -1,0 +1,8 @@
+Mode = "dev"
+Port = 80
+Host = ""
+
+[SSL]
+Enabeld = false
+Key = ""
+Cert = ""
