@@ -8,10 +8,10 @@ import (
 )
 
 // LoadTemplates gets and loads all the application views
-func LoadTemplates(path string) (tpl *template.Template, err error) {
-	tpl = template.New("clientList")
+func LoadTemplates(path string) (*template.Template, error) {
+	tpl := template.New("clientList")
 
-	filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
+	if err := filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
 
 		if !strings.HasSuffix(info.Name(), ".html") {
 			return nil
@@ -22,7 +22,9 @@ func LoadTemplates(path string) (tpl *template.Template, err error) {
 		}
 
 		return nil
-	})
+	}); err != nil {
+		return nil, err
+	}
 
-	return
+	return tpl, nil
 }

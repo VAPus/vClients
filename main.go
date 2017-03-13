@@ -16,6 +16,7 @@ type applicationHandler struct {
 	Response http.ResponseWriter
 	Request *http.Request
 	Template *template.Template
+	Clients []util.Client
 }
 
 type controller func(handler applicationHandler) (int, error)
@@ -36,6 +37,16 @@ func main() {
 	}
 
 	appHandler.Template = tpl
+
+	list, err := util.GetClientList("clients")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	appHandler.Clients = list
+
+	log.Println(list)
 
 	// Create router
 	router := httprouter.New()
